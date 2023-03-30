@@ -4,7 +4,8 @@ nltk.download('punkt')
 from nltk.tokenize import sent_tokenize
 
 # Use barras invertidas duplas no caminho do arquivo ou diretório
-path = "C:\\Users\\Lamid\\Documents\\Dataset"
+# path = "C:\\Users\\Lamid\\Documents\\Dataset"
+path = "C:\\Dataset"
 
 # Obter uma lista de arquivos no diretório
 files = os.listdir(path)
