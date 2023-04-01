@@ -24,4 +24,4 @@ for file in files:
         # Imprimir as sentenças
         print("Sentenças no arquivo " + file + ":")
         for sentence in sentences:
-            print(sentence)
+                print(sentence)

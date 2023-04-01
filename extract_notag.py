@@ -9,7 +9,7 @@ path = "C:\\Users\\Lamid\\Documents\\Dataset"
 files = os.listdir(path)
 
 # Definir o texto a ser procurado
-text_to_find = "pedidos"
+text_to_find = "para"
 
 # Tokenizar o conteúdo de cada arquivo e imprimir somente as sentenças que contêm o texto desejado
 for file in files:
