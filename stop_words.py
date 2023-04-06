@@ -1,16 +1,17 @@
 import os
 import nltk
-nltk.download('punkt')
-nltk.download('stopwords')
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from string import punctuation
+
+nltk.download('punkt')
+nltk.download('stopwords')
 
 # Define a lista de stopwords para a língua portuguesa
 stop_words = set(stopwords.words('portuguese'))
 
 # Use barras invertidas duplas no caminho do arquivo ou diretório
-path = "C:\\Users\\Lamid\\Documents\\Dataset"
+path = "C:\\Dataset"
 
 # Obter uma lista de arquivos no diretório
 files = os.listdir(path)
