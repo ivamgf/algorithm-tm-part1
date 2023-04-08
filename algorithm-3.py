@@ -1,12 +1,17 @@
-# Algorithm 1 - dataset cleaning
+# Algorithm 3 - dataset cleaning and clustering
 
 # Imports
 import os
+
+import matplotlib.pyplot as plt
+import numpy as np
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
-from string import punctuation
 from nltk.stem import PorterStemmer
+from string import punctuation
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
 
 # Downloads
 nltk.download('punkt')
@@ -72,4 +77,25 @@ for file in files:
                 # Print the sentences
                 print(filtered_sentence)
 
+# Calculate the similarity matrix between sentences
+vector = TfidfVectorizer(tokenizer=lambda x: x, lowercase=False)
+matrix_similarity = vector.fit_transform(filtered_sentence)
 
+# Execute the results
+number_clusters = 3
+kmeans = KMeans(n_clusters=number_clusters)
+kmeans.fit(matrix_similarity)
+
+# Print the results
+print("Sentence clustering:\n")
+for i in range(number_clusters):
+    print("Cluster ", i+1, ":")
+    for j in np.where(kmeans.labels_ == i)[0]:
+        print(" - ", sentences[j])
+    print("\n")
+
+# Plotting graphs with centroids
+centroids = kmeans.cluster_centers_
+
+plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=300, linewidths=3, color='r')
+plt.show()
