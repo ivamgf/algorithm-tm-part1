@@ -3,13 +3,13 @@ import nltk
 import chardet
 
 # Definir o caminho do diretório
-path = "C:\\Users\\Lamid\\Documents\\Dataset"
+path = "C:\\Dataset"
 
 # Obter uma lista de arquivos no diretório
 files = os.listdir(path)
 
 # Definir o texto a ser procurado
-text_to_find = "para"
+text_to_find = "RELATORIO"
 
 # Tokenizar o conteúdo de cada arquivo e imprimir somente as sentenças que contêm o texto desejado
 for file in files:

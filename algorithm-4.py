@@ -1,4 +1,4 @@
-# Algorithm 1 - dataset cleaning
+# Algorithm 4 - dataset cleaning and pre-processing
 
 # Imports
 import os
@@ -33,10 +33,10 @@ for file in files:
     with open(os.path.join(path, file), 'r', encoding='utf8') as c:
         content = c.read()
 
-        # Extract the text between the words "mérito" and "acordam"
-        start_index = content.find("mérito")
+        # Extract the text between the words "relatório" and "acordam"
+        start_index = content.find("relatório")
         end_index = content.find("acordam")
-        content = content[start_index + len("mérito"):end_index].strip()
+        content = content[start_index + len("relatório"):end_index].strip()
 
         # Remove the text between the < and > symbols
         content = nltk.re.sub('<.*?>', ' ', content)
