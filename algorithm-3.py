@@ -2,7 +2,6 @@
 
 # Imports
 import os
-
 import matplotlib.pyplot as plt
 import numpy as np
 import nltk
@@ -47,10 +46,12 @@ for file in files:
         # Flag for tokenizing and stemming the sentences after the keyword "ACORDAM"
         tokenize_after_keyword = False
 
-        # Print sentences without stop words
-        print("Sentences in the file " + file + " without stop words:")
+        # List to store the filtered sentences
+        filtered_sentences = []
+
+        # Filter the sentences without stop words and apply stemming
         for sentence in sentences:
-            if "ACORDAM" in sentence:
+            if "RELATÓRIO" in sentence:
                 tokenize_after_keyword = True
 
             if tokenize_after_keyword:
@@ -74,19 +75,20 @@ for file in files:
                 # Put the filtered words together into a sentence again
                 filtered_sentence = ' '.join(words_stemming)
 
-                # Print the sentences
-                print(filtered_sentence)
+                # Add the filtered sentence to the list
+                filtered_sentences.append(filtered_sentence)
 
 # Calculate the similarity matrix between sentences
 vector = TfidfVectorizer(tokenizer=lambda x: x, lowercase=False)
-matrix_similarity = vector.fit_transform(filtered_sentence)
+matrix_similarity = vector.fit_transform(filtered_sentences)
 
 # Execute the results
-number_clusters = 3
+number_clusters = 4
 kmeans = KMeans(n_clusters=number_clusters)
 kmeans.fit(matrix_similarity)
 
 # Print the results
+print("\nFile: " + file)
 print("Sentence clustering:\n")
 for i in range(number_clusters):
     print("Cluster ", i+1, ":")

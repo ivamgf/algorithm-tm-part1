@@ -1,4 +1,4 @@
-# Algorithm 1 - dataset cleaning
+# Algorithm 1 - dataset cleaning and pre-processing
 
 # Imports
 import os
@@ -45,7 +45,7 @@ for file in files:
         # Print sentences without stop words
         print("Sentences in the file " + file + " without stop words:")
         for sentence in sentences:
-            if "ACORDAM" in sentence:
+            if "RELATÓRIO" in sentence:
                 tokenize_after_keyword = True
 
             if tokenize_after_keyword:

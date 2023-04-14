@@ -8,7 +8,7 @@ path = "C:\\Dataset"
 files = os.listdir(path)
 
 # Definir o texto a ser procurado
-text_to_find = "VISTOS"
+text_to_find = "RELATORIO"
 
 # Tokenizar o conteúdo de cada arquivo e imprimir as sentenças anterior à sentença que contêm o texto desejado
 for file in files:
